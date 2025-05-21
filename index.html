@@ -7,6 +7,9 @@
   <link rel="icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="notes.css">
+  <link rel="stylesheet" href="drawing.css">
+  <link rel="stylesheet" href="chatgpt.css">
   <style>
     :root {
       --primary-50: #e6f0ff;
@@ -814,10 +817,10 @@
   <!-- Main App  <div id="app" style="display: none;">
     <!-- Elementos de áudio para efeitos sonoros -->
     <audio id="sound-positive" preload="auto">
-        <source src="positive.wav" type="audio/wav">
+        <source src="sounds/positive.wav" type="audio/wav">
     </audio>
     <audio id="sound-negative" preload="auto">
-        <source src="negative.wav" type="audio/wav">
+        <source src="sounds/negative.wav" type="audio/wav">
     </audio>
     
     <!-- Header -->     <div class="container">
@@ -838,6 +841,9 @@
           <button class="tab" data-tab="historyTab">Histórico</button>
           <button class="tab" data-tab="rewardsTab">Recompensas</button>
           <button class="tab" data-tab="quizTab">Quiz</button>
+          <button class="tab" data-tab="notesTab">Blocos de Notas</button>
+          <button class="tab" data-tab="readingsTab">Leituras</button>
+          <button class="tab" data-tab="chatTab">ChatGPT</button>
           <button class="tab" data-tab="settingsTab">Configurações</button>
         </div>
         
@@ -965,7 +971,7 @@
           <!-- Quiz Tab -->
           <div id="quizTab" class="tab-pane" style="display: none;">
             <div class="card">
-              <h2 class="card-title">Quiz Divertimento</h2>
+              <h2 class="card-title">Quiz de Saúde e Bem-estar</h2>
               <p class="card-subtitle">Teste seus conhecimentos sobre saúde emocional, saúde física, comportamentos sociáveis e diversidade.</p>
               
               <div class="quiz-container">
@@ -1007,6 +1013,7 @@
                 
                 <!-- Seção de pergunta -->
                 <div id="secao-pergunta" style="display: none;">
+                  <div id="quiz-theme-display" class="quiz-theme-info" style="text-align: center; margin-bottom: 1rem; font-weight: 500; padding: 0.5rem; background: linear-gradient(135deg, var(--primary-50), white); border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); border-left: 3px solid var(--primary-400);"></div> <!-- Elemento para exibir o tema -->
                   <div class="pergunta-container">
                     <span id="dificuldade-badge-pergunta" class="dificuldade-badge facil">Nível fácil</span>
                     <div id="texto-pergunta" class="texto-pergunta">Texto da pergunta aqui?</div>
@@ -1027,6 +1034,150 @@
                     <strong>Sua pontuação total:</strong> <span id="pontuacao-feedback">0.0</span>
                   </div>
                   <button id="botao-continuar" class="botao-continuar">Continuar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Blocos de Notas Tab -->
+          <div id="notesTab" class="tab-pane" style="display: none;">
+            <div class="card">
+              <h2 class="card-title">Blocos de Notas</h2>
+              <p class="card-subtitle">Crie e organize suas anotações pessoais.</p>
+              
+              <div class="notes-container">
+                <div class="notes-sidebar">
+                  <div class="notes-header">
+                    <h3>Meus Blocos</h3>
+                    <button id="createNoteBtn" class="create-note-btn">
+                      <span>+</span> Novo
+                    </button>
+                  </div>
+                  <div id="notesList" class="notes-list">
+                    <!-- Lista de blocos de notas será preenchida dinamicamente -->
+                  </div>
+                </div>
+                
+                <div class="notes-content">
+                  <div id="emptyNoteState" class="empty-note-state">
+                    <div class="empty-note-icon">📝</div>
+                    <h3>Nenhum bloco de notas selecionado</h3>
+                    <p>Selecione um bloco existente ou crie um novo para começar.</p>
+                  </div>
+                  
+                  <div id="noteEditor" class="note-editor" style="display: none;">
+                    <div class="note-toolbar">
+                      <input type="text" id="noteTitle" class="note-title-input" placeholder="Título do bloco de notas">
+                      <div class="note-actions">
+                        <div class="note-color-picker">
+                          <button class="color-btn" data-color="default" title="Padrão"></button>
+                          <button class="color-btn red" data-color="red" title="Vermelho"></button>
+                          <button class="color-btn green" data-color="green" title="Verde"></button>
+                          <button class="color-btn blue" data-color="blue" title="Azul"></button>
+                          <button class="color-btn yellow" data-color="yellow" title="Amarelo"></button>
+                          <button class="color-btn purple" data-color="purple" title="Roxo"></button>
+                        </div>
+                        <button id="toggleDrawingModeBtn" class="toggle-drawing-btn">Modo Desenho</button>
+                        <button id="saveNoteBtn" class="save-note-btn">Salvar</button>
+                      </div>
+                    </div>
+                    
+                    <div id="textContainer" style="height: 100%;">
+                      <textarea id="noteContent" class="note-content-textarea" placeholder="Digite suas anotações aqui..."></textarea>
+                    </div>
+                    
+                    <div id="drawingContainer" class="drawing-container" style="display: none;">
+                      <div class="drawing-toolbar">
+                        <input type="color" id="drawingColorPicker" value="#000000" title="Cor do traço">
+                        <input type="range" id="drawingLineWidth" min="1" max="20" value="2" title="Espessura do traço">
+                        <button id="clearDrawingBtn" title="Limpar desenho">Limpar</button>
+                      </div>
+                      <div class="drawing-canvas-container">
+                        <canvas id="drawingCanvas"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Leituras Tab -->
+          <div id="readingsTab" class="tab-pane" style="display: none;">
+            <div class="card">
+              <h2 class="card-title">Leituras</h2>
+              <p class="card-subtitle">Adicione e organize textos de livros para leitura.</p>
+              
+              <div class="readings-container">
+                <div class="readings-sidebar">
+                  <div class="readings-header">
+                    <h3>Meus Textos</h3>
+                    <button id="createReadingBtn" class="create-reading-btn">
+                      <span>+</span> Novo
+                    </button>
+                  </div>
+                  <div id="readingsList" class="readings-list">
+                    <!-- Lista de leituras será preenchida dinamicamente -->
+                  </div>
+                </div>
+                
+                <div class="readings-content">
+                  <div id="emptyReadingState" class="empty-reading-state">
+                    <div class="empty-reading-icon">📚</div>
+                    <h3>Nenhum texto selecionado</h3>
+                    <p>Selecione um texto existente ou crie um novo para começar.</p>
+                  </div>
+                  
+                  <div id="readingEditor" class="reading-editor" style="display: none;">
+                    <div class="reading-toolbar">
+                      <input type="text" id="readingTitle" class="reading-title-input" placeholder="Título do livro">
+                      <button id="saveReadingBtn" class="save-reading-btn">Salvar</button>
+                    </div>
+                    <textarea id="readingContent" class="reading-content-textarea" placeholder="Cole aqui o texto do livro..."></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- ChatGPT Tab -->
+          <div id="chatTab" class="tab-pane" style="display: none;">
+            <div class="card">
+              <h2 class="card-title">ChatGPT</h2>
+              <p class="card-subtitle">Converse com a IA sobre diversos temas como jogos, doramas, manhwas e saúde.</p>
+              
+              <div id="chatContainer" class="chat-container">
+                <div class="chat-header">
+                  <div class="chatgpt-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT Logo">
+                  </div>
+                  <h3>ChatGPT</h3>
+                </div>
+                
+                <div id="chatMessages" class="chat-messages">
+                  <!-- Mensagens serão inseridas dinamicamente -->
+                </div>
+                
+                <div id="emptyChatState" class="empty-chat">
+                  <div class="empty-chat-icon">💬</div>
+                  <h3>Converse com o ChatGPT</h3>
+                  <p>Faça perguntas sobre jogos, doramas, manhwas, saúde e muito mais.</p>
+                  
+                  <div class="suggestion-chips">
+                    <div class="suggestion-chip">Fale sobre Love and Deep Space</div>
+                    <div class="suggestion-chip">O que é Mo Dao Zu Shi?</div>
+                    <div class="suggestion-chip">Recomende um dorama</div>
+                    <div class="suggestion-chip">O que é Manhwa BL?</div>
+                  </div>
+                </div>
+                
+                <div class="chat-input-container">
+                  <textarea id="chatInput" class="chat-input" placeholder="Digite sua mensagem..." rows="1"></textarea>
+                  <button id="sendMessageBtn" class="send-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1928,5 +2079,8 @@
     document.addEventListener('DOMContentLoaded', init);
   </script>
   <script src="quiz.js"></script>
+  <script src="notes.js"></script>
+  <script src="drawing.js"></script>
+  <script src="chatgpt.js"></script>
 </body>
 </html>

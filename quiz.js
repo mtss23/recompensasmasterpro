@@ -1864,16 +1864,46 @@ const Quiz = {
     
     // Exibe a pergunta atual na interface
     exibirPergunta: function() {
+        // Determina o tema atual com base na pergunta (case-insensitive)
+        let temaSelecionado = "Geral"; // Default theme if no specific match
+        const perguntaLower = this.perguntaAtual.pergunta.toLowerCase();
+
+        if (perguntaLower.includes("the love and deepspace") ||
+            (perguntaLower.includes("zayne") && perguntaLower.includes("tlad"))) {
+            temaSelecionado = "The Love And Deepspace";
+        } else if (perguntaLower.includes("mo dao zu shi") ||
+                   perguntaLower.includes("wei wuxian") ||
+                   perguntaLower.includes("lan wangji")) {
+            temaSelecionado = "Mo Dao Zu Shi";
+        } else if (perguntaLower.includes("dorama") ||
+                   perguntaLower.includes("k-drama") ||
+                   perguntaLower.includes("the untamed")) {
+            temaSelecionado = "Doramas";
+        } else if (perguntaLower.includes("enfermagem") ||
+                   perguntaLower.includes("paciente") ||
+                   perguntaLower.includes("hospitalar")) {
+            temaSelecionado = "Enfermagem";
+        } else if (perguntaLower.includes("dr. zayne") && !perguntaLower.includes("tlad")) {
+             // Assuming "Dr. Zayne" questions without TLAD are still related
+            temaSelecionado = "Dr. Zayne (TLAD)";
+        }
+        // If none match, temaSelecionado remains "Geral"
+
+        // Exibe o tema atual com estilo melhorado
+        const themeDisplayElement = document.getElementById('quiz-theme-display');
+        // Using innerHTML to add structure and styling elements
+        themeDisplayElement.innerHTML = `<span class="theme-icon">🏷️</span> Tema: <strong class="theme-name">${temaSelecionado}</strong>`;
+
         // Exibe o texto da pergunta
         document.getElementById('texto-pergunta').textContent = this.perguntaAtual.pergunta;
-        
+
         // Atualiza a badge de dificuldade
-        const dificuldadeTexto = this.perguntaAtual.dificuldade === 'facil' ? 'fácil' : 
+        const dificuldadeTexto = this.perguntaAtual.dificuldade === 'facil' ? 'fácil' :
                                 this.perguntaAtual.dificuldade === 'medio' ? 'médio' : 'difícil';
-        
+
         document.getElementById('dificuldade-badge-pergunta').className = `dificuldade-badge ${this.perguntaAtual.dificuldade}`;
         document.getElementById('dificuldade-badge-pergunta').textContent = `Nível ${dificuldadeTexto}`;
-        
+
         // Limpa opções anteriores
         const containerOpcoes = document.getElementById('opcoes-container');
         containerOpcoes.innerHTML = '';

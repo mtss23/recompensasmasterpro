@@ -843,7 +843,6 @@
           <button class="tab" data-tab="quizTab">Quiz</button>
           <button class="tab" data-tab="notesTab">Blocos de Notas</button>
           <button class="tab" data-tab="readingsTab">Leituras</button>
-          <button class="tab" data-tab="chatTab">ChatGPT</button>
           <button class="tab" data-tab="settingsTab">Configurações</button>
         </div>
         
@@ -1077,8 +1076,6 @@
                           <button class="color-btn yellow" data-color="yellow" title="Amarelo"></button>
                           <button class="color-btn purple" data-color="purple" title="Roxo"></button>
                         </div>
-                        <button id="toggleDrawingModeBtn" class="toggle-drawing-btn">Modo Desenho</button>
-                        <button id="saveNoteBtn" class="save-note-btn">Salvar</button>
                       </div>
                     </div>
                     
@@ -1140,48 +1137,6 @@
             </div>
           </div>
           
-          <!-- ChatGPT Tab -->
-          <div id="chatTab" class="tab-pane" style="display: none;">
-            <div class="card">
-              <h2 class="card-title">ChatGPT</h2>
-              <p class="card-subtitle">Converse com a IA sobre diversos temas como jogos, doramas, manhwas e saúde.</p>
-              
-              <div id="chatContainer" class="chat-container">
-                <div class="chat-header">
-                  <div class="chatgpt-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT Logo">
-                  </div>
-                  <h3>ChatGPT</h3>
-                </div>
-                
-                <div id="chatMessages" class="chat-messages">
-                  <!-- Mensagens serão inseridas dinamicamente -->
-                </div>
-                
-                <div id="emptyChatState" class="empty-chat">
-                  <div class="empty-chat-icon">💬</div>
-                  <h3>Converse com o ChatGPT</h3>
-                  <p>Faça perguntas sobre jogos, doramas, manhwas, saúde e muito mais.</p>
-                  
-                  <div class="suggestion-chips">
-                    <div class="suggestion-chip">Fale sobre Love and Deep Space</div>
-                    <div class="suggestion-chip">O que é Mo Dao Zu Shi?</div>
-                    <div class="suggestion-chip">Recomende um dorama</div>
-                    <div class="suggestion-chip">O que é Manhwa BL?</div>
-                  </div>
-                </div>
-                
-                <div class="chat-input-container">
-                  <textarea id="chatInput" class="chat-input" placeholder="Digite sua mensagem..." rows="1"></textarea>
-                  <button id="sendMessageBtn" class="send-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                      <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
           
           <!-- Configurações Tab -->
           <div id="settingsTab" class="tab-pane" style="display: none;">

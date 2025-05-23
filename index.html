@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cristão Master - Microdesafios para uma fé mais forte.</title>
+  <title>Recompensas Master - Microdesafios para uma vida mais saudável</title>
   <link rel="icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="quiz.css">
@@ -797,40 +797,6 @@
         width: 100%;
       }
     }
-
-    /* Ajustes para layout mobile do Quiz */
-    @media (max-width: 640px) {
-      .quiz-controls .dificuldade-container {
-        flex-direction: column; /* Empilha os elementos verticalmente */
-        align-items: stretch; /* Estica os itens para preencher a largura */
-        gap: 10px; /* Espaço entre os elementos empilhados */
-      }
-      .quiz-controls .dificuldade-container > div { /* Seleciona os divs filhos diretos */
-        width: 100%; /* Faz os filhos ocuparem a largura total */
-        margin-left: 0 !important; /* Remove margem esquerda que pode existir */
-        display: flex; /* Garante flex para alinhar itens internos */
-        align-items: center; /* Centraliza verticalmente itens internos */
-        justify-content: space-between; /* Espaça itens internos */
-      }
-       .quiz-controls .dificuldade-container > div:first-child {
-         justify-content: flex-start; /* Alinha o seletor à esquerda */
-         gap: 10px;
-       }
-      .quiz-controls .dificuldade-container > div:last-child { /* Div com badge e pontos */
-        justify-content: flex-start; /* Alinha badge e pontos à esquerda */
-        gap: 8px;
-        padding: 5px 0; /* Adiciona um pouco de padding vertical */
-      }
-      .quiz-controls .pontos-info {
-          white-space: normal; /* Permite quebra de linha se necessário, mas o layout deve evitar */
-          font-size: 0.9rem; /* Reduz um pouco a fonte se necessário */
-          text-align: left; /* Garante alinhamento à esquerda */
-          flex-shrink: 1; /* Permite encolher se necessário */
-      }
-      .quiz-controls .dificuldade-badge {
-          flex-shrink: 0; /* Evita que o badge encolha */
-      }
-    }
   </style>
 </head>
 <body>
@@ -839,8 +805,8 @@
     <div class="logo-container">
       <img src="rewards1.png" alt="Recompensas Logo" class="logo">
     </div>
-    <h1 class="splash-title">Cristão Master</h1>
-    <p class="splash-subtitle">Microdesafios para uma fé mais forte.</p>
+    <h1 class="splash-title">Recompensas Master</h1>
+    <p class="splash-subtitle">Microdesafios para uma vida mais saudável</p>
     <div class="loading-indicator">
       <div class="loading-bar"></div>
       <div class="loading-bar"></div>
@@ -851,23 +817,17 @@
   <!-- Main App  <div id="app" style="display: none;">
     <!-- Elementos de áudio para efeitos sonoros -->
     <audio id="sound-positive" preload="auto">
-        <source src="sounds/positive.mp3" type="audio/mp3">
+        <source src="positive.wav" type="audio/wav">
     </audio>
     <audio id="sound-negative" preload="auto">
-        <source src="sounds/negative.mp3" type="audio/mp3">
-    </audio>
-        <audio id="sound-parabens" preload="auto">
-        <source src="sounds/parabens.mp3" type="audio/mp3">
-    </audio>
-            <audio id="sound-desistiu" preload="auto">
-        <source src="sounds/desistiu.mp3" type="audio/mp3">
+        <source src="negative.wav" type="audio/wav">
     </audio>
     
     <!-- Header -->     <div class="container">
         <div class="header-content">
           <div class="brand">
             <img src="rewards.png" alt="HR Logo" class="logo-header">
-            <h1 class="brand-name">Cristão Master</h1>
+            <h1 class="brand-name">Recompensas Master</h1>
           </div>
           <div id="pointsDisplay" class="points">0 pontos</div>
         </div>
@@ -949,58 +909,58 @@
               <div id="rewardsList" class="rewards-list">
                 <div class="reward-item">
                   <div class="reward-info">
-                    <div class="reward-name">Quadro decorativo com versículo bíblico</div>
+                    <div class="reward-name">360 Sementes de Rosas</div>
+                    <div class="reward-points">280 pontos</div>
+                  </div>
+                  <button class="reward-btn" data-reward-id="1" data-reward-points="280" data-reward-name="360 Sementes de Rosas">Resgatar</button>
+                </div>
+                
+                <div class="reward-item">
+                  <div class="reward-info">
+                    <div class="reward-name">Card Zayne 50 Peças</div>
                     <div class="reward-points">400 pontos</div>
                   </div>
-                  <button class="reward-btn" data-reward-id="1" data-reward-points="400" data-reward-name="Quadro decorativo com versículo bíblico">Resgatar</button>
+                  <button class="reward-btn" data-reward-id="2" data-reward-points="400" data-reward-name="Card Zayne 50 Peças">Resgatar</button>
                 </div>
                 
                 <div class="reward-item">
                   <div class="reward-info">
-                    <div class="reward-name">Livro Cristão</div>
-                    <div class="reward-points">750 pontos</div>
+                    <div class="reward-name">Kit Teclado e Mouse</div>
+                    <div class="reward-points">600 pontos</div>
                   </div>
-                  <button class="reward-btn" data-reward-id="2" data-reward-points="750" data-reward-name="Livro Cristão">Resgatar</button>
+                  <button class="reward-btn" data-reward-id="3" data-reward-points="600" data-reward-name="Kit Teclado e Mouse">Resgatar</button>
                 </div>
                 
                 <div class="reward-item">
                   <div class="reward-info">
-                    <div class="reward-name">Caixinha de promessas</div>
-                    <div class="reward-points">900 pontos</div>
+                    <div class="reward-name">Leitor Omnisciente ORV</div>
+                    <div class="reward-points">650 pontos</div>
                   </div>
-                  <button class="reward-btn" data-reward-id="3" data-reward-points="900" data-reward-name="Caixinha de Promessas">Resgatar</button>
+                  <button class="reward-btn" data-reward-id="4" data-reward-points="650" data-reward-name="Leitor Omnisciente ORV">Resgatar</button>
                 </div>
                 
                 <div class="reward-item">
                   <div class="reward-info">
-                    <div class="reward-name">Caneca personalizada</div>
-                    <div class="reward-points">950 pontos</div>
+                    <div class="reward-name">Óculos VR</div>
+                    <div class="reward-points">800 pontos</div>
                   </div>
-                  <button class="reward-btn" data-reward-id="4" data-reward-points="950" data-reward-name="Caneca Personalizada">Resgatar</button>
+                  <button class="reward-btn" data-reward-id="5" data-reward-points="800" data-reward-name="Óculos VR">Resgatar</button>
                 </div>
                 
                 <div class="reward-item">
                   <div class="reward-info">
-                    <div class="reward-name">Blusa Cristã</div>
-                    <div class="reward-points">1000 pontos</div>
+                    <div class="reward-name">Peruca</div>
+                    <div class="reward-points">1200 pontos</div>
                   </div>
-                  <button class="reward-btn" data-reward-id="5" data-reward-points="1000" data-reward-name="Blusa Cristã">Resgatar</button>
+                  <button class="reward-btn" data-reward-id="6" data-reward-points="1200" data-reward-name="Peruca">Resgatar</button>
                 </div>
                 
                 <div class="reward-item">
                   <div class="reward-info">
-                    <div class="reward-name">Vestido ou Blusa + Saia</div>
-                    <div class="reward-points">1600 pontos</div>
-                  </div>
-                  <button class="reward-btn" data-reward-id="6" data-reward-points="1600" data-reward-name="Vestido ou Blusa + Saia">Resgatar</button>
-                </div>
-                
-                <div class="reward-item">
-                  <div class="reward-info">
-                    <div class="reward-name">Pix de R$ 70,00</div>
+                    <div class="reward-name">Pix de R$ 99,90</div>
                     <div class="reward-points">2200 pontos</div>
                   </div>
-                  <button class="reward-btn" data-reward-id="7" data-reward-points="2200" data-reward-name="Pix de R$ 70,00">Resgatar</button>
+                  <button class="reward-btn" data-reward-id="7" data-reward-points="2200" data-reward-name="Pix de R$ 99,90">Resgatar</button>
                 </div>
               </div>
             </div>
@@ -1009,8 +969,8 @@
           <!-- Quiz Tab -->
           <div id="quizTab" class="tab-pane" style="display: none;">
             <div class="card">
-              <h2 class="card-title">Quiz - Fortaleca sua fé</h2>
-              <p class="card-subtitle">Teste seus conhecimentos sobre a Bíblia, Jesus e evangelho.</p>
+              <h2 class="card-title">Quiz de Saúde e Bem-estar</h2>
+              <p class="card-subtitle">Teste seus conhecimentos sobre saúde emocional, saúde física, comportamentos sociáveis e diversidade.</p>
               
               <div class="quiz-container">
                 <!-- Seção inicial do quiz -->
@@ -1031,20 +991,15 @@
                   </div>
                   
                   <div class="quiz-controls">
-                    <div class="dificuldade-container" style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                      <div style="display: flex; align-items: center; background: linear-gradient(135deg, var(--primary-50), white); padding: 8px 12px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);">
-                        <label for="selecionar-dificuldade-hidden" style="margin-right: 10px; font-weight: 500; color: var(--primary-700);">Dificuldade:</label>
-                        <input type="hidden" id="selecionar-dificuldade-hidden" value="facil"> <!-- Campo oculto para armazenar o valor -->
-                        <div class="custom-select-dificuldade" style="display: flex; gap: 8px;">
-                          <button class="dificuldade-btn active" data-value="facil" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--primary-200); background-color: var(--primary-100); color: var(--primary-700); font-family: 'Poppins', sans-serif; cursor: pointer; transition: all 0.2s ease;">Fácil</button>
-                          <button class="dificuldade-btn" data-value="medio" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--primary-200); background-color: white; color: var(--primary-700); font-family: 'Poppins', sans-serif; cursor: pointer; transition: all 0.2s ease;">Médio</button>
-                          <button class="dificuldade-btn" data-value="dificil" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--primary-200); background-color: white; color: var(--primary-700); font-family: 'Poppins', sans-serif; cursor: pointer; transition: all 0.2s ease;">Difícil</button>
-                        </div>
-                      </div>
-                      <div style="display: flex; align-items: center; margin-left: 5px;">
-                        <span id="dificuldade-badge" class="dificuldade-badge facil" style="margin-right: 8px; padding: 5px 10px; border-radius: 8px; font-weight: 500;">Nível fácil</span>
-                        <span class="pontos-info" style="color: #6b7280; font-size: 0.95rem;">(<span id="pontos-por-questao">1.0</span> pontos por questão)</span>
-                      </div>
+                    <div class="dificuldade-container">
+                      <label for="selecionar-dificuldade">Dificuldade:</label>
+                      <select id="selecionar-dificuldade">
+                        <option value="facil">Fácil</option>
+                        <option value="medio">Médio</option>
+                        <option value="dificil">Difícil</option>
+                      </select>
+                      <span id="dificuldade-badge" class="dificuldade-badge facil">Nível fácil</span>
+                      <span class="pontos-info">(<span id="pontos-por-questao">0.5</span> pontos por questão)</span>
                     </div>
                     <button id="iniciar-quiz" class="iniciar-quiz-btn">Iniciar Quiz</button>
                   </div>
@@ -1248,7 +1203,7 @@
               
               <div class="instruction-step">
                 <h3>3. No celular (Android)</h3>
-                <p>Para receber notificações no celular, adicione o Cristão Master à tela inicial:</p>
+                <p>Para receber notificações no celular, adicione o Recompensas Master à tela inicial:</p>
                 <ul>
                   <li>No Chrome, toque no menu (três pontos)</li>
                   <li>Selecione "Adicionar à tela inicial"</li>
@@ -1283,34 +1238,34 @@
   <script>
     // Missões possíveis
     const MISSOES_POSSIVEIS = [
-      // Missões fáceis (2 pontos)
-      { id: 1, nome: 'Ler um capítulo da Bíblia', descricao: 'Fortaleça sua fé com a leitura da Palavra de Deus', dificuldade: 'facil', pontos: 4 },
-      { id: 2, nome: 'Orar por 5 minutos', descricao: 'Dedique um tempo para conversar com Deus', dificuldade: 'facil', pontos: 4 },
-      { id: 3, nome: 'Memorizar um versículo bíblico', descricao: 'Guarde a Palavra de Deus em seu coração', dificuldade: 'facil', pontos: 4 },
-      { id: 4, nome: 'Ouvir uma música gospel', descricao: 'Eleve seu espírito com louvor e adoração', dificuldade: 'facil', pontos: 4 },
-      { id: 5, nome: 'Agradecer a Deus por 3 bênçãos recebidas hoje', descricao: 'Cultive um coração grato', dificuldade: 'facil', pontos: 4 },
-      { id: 6, nome: 'Compartilhar um versículo com um amigo', descricao: 'Espalhe a Palavra de Deus', dificuldade: 'facil', pontos: 4 },
-      { id: 7, nome: 'Fazer uma oração antes de uma refeição', descricao: 'Agradeça a Deus pelo alimento recebido', dificuldade: 'facil', pontos: 4 },
-      { id: 8, nome: 'Assistir a um vídeo de 5 minutos sobre ensinamentos bíblicos', descricao: 'Aprenda mais sobre a Palavra de Deus', dificuldade: 'facil', pontos: 4 },
-      { id: 9, nome: 'Ler um salmo', descricao: 'Encontre conforto e inspiração nos Salmos', dificuldade: 'facil', pontos: 4 },
-      { id: 10, nome: 'Fazer uma pequena reflexão sobre um versículo', descricao: 'Medite na Palavra e aplique-a em sua vida', dificuldade: 'facil', pontos: 4 },
-      { id: 11, nome: 'Orar por um familiar específico', descricao: 'Interceda por alguém de sua família', dificuldade: 'facil', pontos: 4 },
-      { id: 12, nome: 'Fazer uma pausa de 5 minutos para meditar em um versículo', descricao: 'Reflita profundamente sobre a Palavra', dificuldade: 'facil', pontos: 4 },
-      { id: 13, nome: 'Anotar um versículo que tocou seu coração', descricao: 'Registre as revelações que Deus lhe dá', dificuldade: 'facil', pontos: 4 },
-      { id: 14, nome: 'Agradecer a Deus por algo específico', descricao: 'Reconheça as bênçãos em sua vida', dificuldade: 'facil', pontos: 4 },
-      { id: 15, nome: 'Orar pelo seu pastor ou líder espiritual', descricao: 'Interceda por aqueles que cuidam de seu crescimento espiritual', dificuldade: 'facil', pontos: 4 },
+      // Missões fáceis (3 pontos)
+      { id: 1, nome: 'Faça 15 agachamentos', descricao: 'Fortaleça suas pernas com agachamentos simples', dificuldade: 'facil', pontos: 3 },
+      { id: 2, nome: 'Beba dois copos de água', descricao: 'Mantenha-se hidratado durante o dia', dificuldade: 'facil', pontos: 3 },
+      { id: 3, nome: 'Alongue os braços por 2 minutos', descricao: 'Alongamentos ajudam a prevenir lesões', dificuldade: 'facil', pontos: 3 },
+      { id: 4, nome: 'Respire profundamente 15 vezes lentamente', descricao: 'Reduza o estresse com respiração consciente', dificuldade: 'facil', pontos: 3 },
+      { id: 5, nome: 'Faça uma pausa de 2 minutos da tela', descricao: 'Descanse seus olhos da luz azul', dificuldade: 'facil', pontos: 3 },
+      { id: 6, nome: 'Dê uma volta com o cachorro', descricao: 'Movimente-se um pouco para ativar a circulação', dificuldade: 'facil', pontos: 3 },
+      { id: 7, nome: 'Faça 10 flexões de braço na parede', descricao: 'Fortaleça o core e os braços', dificuldade: 'facil', pontos: 3 },
+      { id: 8, nome: 'Fique longe do celular por 10 Minutos', descricao: 'Melhorar a sua visão e vício da tela', dificuldade: 'facil', pontos: 3 },
+      { id: 9, nome: 'Faça rotação do pescoço por 1 Minuto', descricao: 'Alivie a tensão no pescoço com movimentos suaves', dificuldade: 'facil', pontos: 3 },
+      { id: 10, nome: 'Coma uma fruta ou alguma coisa saudável', descricao: 'Adicione nutrientes à sua alimentação', dificuldade: 'facil', pontos: 3 },
+      { id: 11, nome: 'Faça 15 Agachamentos', descricao: 'Fortalece pernas e glúteos. Pode começar com o peso do próprio corpo.', dificuldade: 'facil', pontos: 3 },
+      { id: 12, nome: 'Medite por 5 minutos', descricao: 'Acalme sua mente com meditação rápida', dificuldade: 'facil', pontos: 3 },
+      { id: 13, nome: 'Beba um copo de água', descricao: 'Manter a saúde em dia', dificuldade: 'facil', pontos: 3 },
+      { id: 14, nome: 'Seja afetiva com uma pessoa importante', descricao: 'Manter a boa relação com amigos ou familiares', dificuldade: 'facil', pontos: 3 },
+      { id: 15, nome: 'Faça 10 Agachamentos', descricao: 'Exercício completo para pernas, glúteos e equilíbrio', dificuldade: 'facil', pontos: 3 },
       
-      // Missões difíceis (4 pontos)
-      { id: 16, nome: 'Ler 3 capítulos da Bíblia', descricao: 'Aprofunde-se no estudo da Palavra de Deus', dificuldade: 'dificil', pontos: 6 },
-      { id: 17, nome: 'Fazer um estudo bíblico de 15 minutos', descricao: 'Dedique tempo para entender melhor as Escrituras', dificuldade: 'dificil', pontos: 6 },
-      { id: 18, nome: 'Orar por 15 minutos', descricao: 'Tenha um tempo mais profundo de comunhão com Deus', dificuldade: 'dificil', pontos: 6 },
-      { id: 19, nome: 'Memorizar uma passagem bíblica (3-5 versículos)', descricao: 'Guarde porções maiores da Palavra em seu coração', dificuldade: 'dificil', pontos: 6 },
-      { id: 20, nome: 'Fazer um devocional completo', descricao: 'Dedique um tempo de qualidade para leitura, meditação e oração', dificuldade: 'dificil', pontos: 6 },
-      { id: 21, nome: 'Escrever um resumo de um capítulo bíblico', descricao: 'Aprofunde seu entendimento das Escrituras', dificuldade: 'dificil', pontos: 6 },
-      { id: 22, nome: 'Orar por 3 pessoas diferentes com necessidades específicas', descricao: 'Interceda por aqueles que precisam', dificuldade: 'dificil', pontos: 6 },
-      { id: 23, nome: 'Fazer um jejum de redes sociais por 1 hora para leitura bíblica', descricao: 'Dedique tempo exclusivo para Deus', dificuldade: 'dificil', pontos: 6 },
-      { id: 24, nome: 'Assistir a uma pregação completa', descricao: 'Alimente-se da Palavra pregada', dificuldade: 'dificil', pontos: 6 },
-      { id: 25, nome: 'Compartilhar seu testemunho com alguém', descricao: 'Conte o que Deus tem feito em sua vida', dificuldade: 'dificil', pontos: 6 }
+      // Missões difíceis (6 pontos)
+      { id: 16, nome: 'Pule 50 Vezes', descricao: 'Exercício de alta intensidade para fortalecer pernas e glúteos', dificuldade: 'dificil', pontos: 6 },
+      { id: 17, nome: 'Corre parada por 4 Minutos', descricao: 'Desafie sua força muscular com flexões tradicionais', dificuldade: 'dificil', pontos: 6 },
+      { id: 18, nome: 'Faça prancha por 2 minutos', descricao: 'Fortaleça seu core e melhore sua resistência', dificuldade: 'dificil', pontos: 6 },
+      { id: 19, nome: 'Brinque com os animais sem o celular por 10 Minutos', descricao: 'Ter uma relação fora das telas', dificuldade: 'dificil', pontos: 6 },
+      { id: 20, nome: 'Faça 20 Polichinelos', descricao: 'Melhore a circulação nas pernas e braços', dificuldade: 'dificil', pontos: 6 },
+      { id: 21, nome: 'Corra parada por 5 Minutos', descricao: 'Aumente seus batimentos cardíacos', dificuldade: 'dificil', pontos: 6 },
+      { id: 22, nome: 'Limpe o seu quarto', descricao: 'Um ambiente organizado ajuda na concentração', dificuldade: 'dificil', pontos: 6 },
+      { id: 23, nome: 'Pule 60 Vezes', descricao: 'Exercício de corpo inteiro de alta intensidade', dificuldade: 'dificil', pontos: 6 },
+      { id: 24, nome: 'Coma alguma coisa imediatamente, mas sem pressa', descricao: 'Preencher a rotina de alimentação', dificuldade: 'dificil', pontos: 6 },
+      { id: 25, nome: 'Abrace algum familiar', descricao: 'Tenha proximidade com a sua família', dificuldade: 'dificil', pontos: 6 }
     ];
 
     // Estado da aplicação
@@ -1632,7 +1587,7 @@
       
       state.notificacoes.horarios.forEach(time => {
         if (time === currentTime) {
-          sendNotification('Cristão Master', 'Hora de completar uma missão de saúde!');
+          sendNotification('Recompensas Master', 'Hora de completar uma missão de saúde!');
         }
       });
     }
@@ -1662,7 +1617,7 @@
       const missaoSelecionada = missoesFiltradas[randomIndex];
       
       // Definir tempo para todas as missões
-      const tempoMissao = 1800; // 30 minutos para todas as missões
+      const tempoMissao = 600; // 10 minutos para todas as missões
       
       // Atualizar estado
       state.missaoAtual = {
@@ -1739,7 +1694,7 @@
       clearInterval(state.intervaloTimer);
       
       // Tocar efeito sonoro positivo
-      document.getElementById('sound-parabens').play();
+      document.getElementById('sound-positive').play();
       
       // Obter pontos atuais do localStorage para garantir que não sobrescreva pontos do quiz
       const pontosAtuais = parseInt(localStorage.getItem('msaude_pontos') || '0');
@@ -1931,7 +1886,7 @@
         clearInterval(state.intervaloTimer);
         
         // Tocar efeito sonoro negativo
-        document.getElementById('sound-desistiu').play();
+        document.getElementById('sound-negative').play();
         
         // Adicionar ao histórico
         state.historico.push({
@@ -2060,7 +2015,7 @@
         if (!state.notificacoes.permissaoConcedida) {
           requestNotificationPermission();
         } else {
-          sendNotification('Teste de Notificação', 'Esta é uma notificação de teste do Cristão Master!');
+          sendNotification('Teste de Notificação', 'Esta é uma notificação de teste do Recompensas Master!');
           showNotificationMessage('Notificação de teste enviada!', 'success');
         }
       });
@@ -2082,6 +2037,5 @@
   <script src="notes.js"></script>
   <script src="drawing.js"></script>
   <script src="chatgpt.js"></script>
-  <script src="quiz_script.js"></script>
 </body>
 </html>

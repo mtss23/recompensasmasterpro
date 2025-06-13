@@ -1971,7 +1971,7 @@ const Quiz = {
         if (estaCorreta) {
             switch (this.perguntaAtual.dificuldade) {
                 case 'facil':
-                    pontos = 1.0;
+                    pontos = 100.0;
                     break;
                 case 'medio':
                     pontos = 2;
